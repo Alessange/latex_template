@@ -222,3 +222,19 @@
 \def\Xc{\mathcal{X}}
 \def\Yc{\mathcal{Y}}
 \def\Zc{\mathcal{Z}}
+
+
+%package for FSA
+
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+\tikzset{auto} % move labels away from edges
+\newenvironment*{transitiondiagram}[1][]
+{\begin{tikzpicture}
+[initial text=\hspace*{-3ex},% no label or extra space for initial state
+>=latex,% use default LaTeX arrowheads
+bend angle=15,% less curved than default
+baseline=-.75\dp\strutbox,% vertically center on initial state
+every state/.style={inner sep=1pt,minimum size=1.75em},% reduce size
+#1]}% optional settings
+{\end{tikzpicture}}
