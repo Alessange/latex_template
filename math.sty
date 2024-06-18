@@ -1,13 +1,16 @@
 % ---------- Brackets ----------
-\usepackage{amsmath, amsfonts, amssymb, amsthm}
-\usepackage{hyperref, calc, enumitem, fancyhdr, geometry, relsize, ulem, url, xfrac}
-\geometry{margin=1in}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumitem}
 
 \newcommand{\ip}[2]{\langle #1, #2 \rangle}
 \newcommand{\proofheader}[1]{\noindent \underline{\textbf{#1}}}
 \newcommand{\base}{\proofheader{Base Case}:}
 \newcommand{\istep}{\proofheader{Inductive Step}:}
-\newenvironment{claim}[1]{\par\noindent\underline{Claim:}\space#1}{}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}{Lemma}
 \newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
 \newcommand{\bp}[1]{\left( #1 \right)} 
 \newcommand{\bs}[1]{\left[ #1 \right]} 
@@ -15,8 +18,7 @@
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\set}[1]{\left\{ #1 \right\}}
-
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
 % ---------- Accents ----------
 
 \newcommand{\ol}[1]{\overline{#1}}
@@ -147,6 +149,7 @@
 \newcommand{\odlx}[2]{d\ln(#1)/d\ln(#2)}
 \newcommand{\pdw}[3]{\left.\frac{\partial #1}{\partial #2}\right\vert_{#3}} 
 \newcommand{\pdwx}[3]{\left.\partial #1/\partial #2\right\vert_{#3}}
+\newcommand{\grad}[1]{\nabla #1}
 
 % ---------- Blackboard letters ----------
 
@@ -156,6 +159,7 @@
 \def\Q{\mathbb{Q}}
 \def\C{\mathbb{C}}
 \def\I{\mathbb{I}}
+\def\K{\mathbb{K}}
 
 % ---------- Greek letters ----------
 
@@ -222,17 +226,6 @@
 \def\Zc{\mathcal{Z}}
 
 
-%package for FSA
+\usepackage{amsfonts}
 
-\usepackage{tikz}
-\usetikzlibrary{automata,positioning,arrows}
-\tikzset{auto} % move labels away from edges
-\newenvironment*{transitiondiagram}[1][]
-{\begin{tikzpicture}
-[initial text=\hspace*{-3ex},% no label or extra space for initial state
->=latex,% use default LaTeX arrowheads
-bend angle=15,% less curved than default
-baseline=-.75\dp\strutbox,% vertically center on initial state
-every state/.style={inner sep=1pt,minimum size=1.75em},% reduce size
-#1]}% optional settings
-{\end{tikzpicture}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
